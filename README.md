@@ -6,3 +6,6 @@ In the script you will find three functions. Firstly, a function to set the time
 The second function is simply a click function to save text to local storage, and the third function displays it back to the timeblock it was entered in so refreshing the page holds the scheduled event.
 
 ![](assets/schedule.png)
+
+Repo Link: https://github.com/bendrakeacker/Third-Party-API-Workday-Schedule
+Deployed Link: https://bendrakeacker.github.io/Third-Party-API-Workday-Schedule
