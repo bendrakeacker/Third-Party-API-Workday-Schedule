@@ -75,7 +75,3 @@ $(".saveBtn").on("click",function(){
 function schedule() {
 
 }
-
-$(".resetBtn").on("click",function(){
-
-});
