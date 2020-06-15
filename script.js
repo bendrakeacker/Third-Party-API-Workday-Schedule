@@ -16,7 +16,8 @@ function clock() {
         for(var i = 9; i <= 17; i++ ) {
             var rowDiv = $("<div id=slot-"+i+">").addClass("row hour");
             var hrTxt = moment().hour(i).format('HH');
-            var hrCol = $("<section>").addClass("col col-lg col-md col-sm").text(hrTxt);
+            var realTime = moment().hour(i).format('hA');
+            var hrCol = $("<section>").addClass("col col-lg col-md col-sm").text(realTime);
             var txt = $("<textarea>").addClass("col-8 col-lg-8 col-md-8 col-sm-8 textarea");
             var btn = $("<button>").addClass("col col-lg col-md col-sm saveBtn").text("SAVE");
             
