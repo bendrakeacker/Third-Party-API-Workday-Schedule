@@ -42,17 +42,17 @@ body {
     border-top: 1px #000000;
   }
   
-  .past {
+  .before {
     background-color: red;
     color: white;
   }
   
-  .present {
+  .now {
     background-color:lightgreen;
     color: white;
   }
   
-  .future {
+  .after {
     background-color: blue;
     color: white;
   }

@@ -13,7 +13,6 @@ function clock() {
         $("#today").text(inTime);
         determineTime();
 
-
     })
 }
 clock();
@@ -25,15 +24,17 @@ function determineTime() {
         var hrBlock = $(this).children("section").html();
         var blockAMPM = "";
         var hrNowBlockAMPM = "";
-
+//if the hour has a string of 4 (for blockAMPM)
         if(hrBlock.length == 4) {
             blockAMPM = hrBlock[2]+hrNowBlockAMPM[3];
             hrNowBlock = hrNowBlock[1];
         }
+//if the string doesnt have 4 characters it must 5
         else {
-            blockAMPM = hrBlock[4] + hrNowBlockAMPM[5];
-            hrNowBlock = hrNowBlock[0] + hrNowBlock[1];
+            blockAMPM = hrBlock[3] + hrNowBlockAMPM[4];
+            hrNowBlock = hrNowBlock[1] + hrNowBlock[2];
         }
+// same conditional for hrNowBlockAMPM
         if(hrNowBlock.length == 4) {
             hrNowBlockAMPM = hrNowBlock[2] + hrNowBlock[3];
             hrNowBlock = hrNowBlock[1];
@@ -46,8 +47,23 @@ function determineTime() {
         hrNowBlock = parseInt(hrNowBlock);
         hrBlock = parseInt(hrBlock);
 
-        console.log(hrNowBlock);
-        console.log(hrBlock);
+        if($(this).children("section").html() == (hrNowBlock + hrBlock)) {
+            $(this).children("textarea").addClass("now");
+        }
+
+        if(hrBlock < hrNowBlock && hrBlock !== 12 && blockAMPM == hrNowBlockAMPM) {
+            $(this).children("textarea").addClass("before");
+        }
+
+        else if(hrBlock == 12 && hrNowBlock >= 1 && hrNowBlockAMPM == "PM" && hrNow !== 12){
+            $(this).children("textarea").addClass("before");
+        }
+        else if(hrBlock == 12 && hrNowBlock >=1 && blockAMPM == "AM" && hrNowBlockAMPM == "AM") {
+            $(this).children("textarea").addClass("before");
+        }
+        if(blockAMPM == "AM" && hrNowBlockAMPM == "PM"){
+            $(this).children("textarea").addClass("before");
+        }
     })
 }
 
